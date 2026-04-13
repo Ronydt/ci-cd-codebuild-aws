@@ -20,7 +20,7 @@ jobs:
         node-version: '18.x'
         cache: 'yarn'
 
-    - run: npm pkg delete
+    - run: npm pkg delete scripts.prepare
 
     - name: Install dependencies
       run: yarn install --frozen-lockfile
