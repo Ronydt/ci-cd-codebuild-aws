@@ -23,7 +23,7 @@ export function UserMenu() {
   return (
     <div className="flex items-center gap-4">
       <div className="flex flex-col items-end gap-1 text-right">
-        <span className="block text-sm text-zinc-500">Olá, {user.name}!</span>
+        <span className="block text-sm text-zinc-500">Olá, {user.name}</span>
         <button
           type="button"
           className="flex items-center gap-1.5 text-sm text-red-500 transition-colors hover:text-red-400"
