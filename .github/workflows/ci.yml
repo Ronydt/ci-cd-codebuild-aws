@@ -20,14 +20,16 @@ jobs:
         node-version: '18.x'
         cache: 'yarn'
 
-    - name: Install Dependencies
+    - run: npm pkg delete scripts.prepare
+
+    - name: Install dependencies
       uses: yarn install --frozen-lockfile
 
-    - name: Lint
+    - name: Linting
       uses: yarn ci:lint
 
-    - name: Typecheck
+    - name: Typechecking
       uses: yarn typecheck
 
-    - name: Tests
+    - name: Testing
       uses: yarn test:ci
