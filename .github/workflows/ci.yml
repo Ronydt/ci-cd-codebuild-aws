@@ -1,0 +1,33 @@
+name: CI - Node.js
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Use Node.js 18.x
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+        cache: 'yarn'
+
+    - name: Install Dependencies
+      uses: yarn install --frozen-lockfile
+
+    - name: Lint
+      uses: yarn ci:lint
+
+    - name: Typecheck
+      uses: yarn typecheck
+
+    - name: Tests
+      uses: yarn test:ci
